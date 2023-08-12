@@ -1,4 +1,4 @@
-function conversion() {
+/* function conversion() {
     const tipoMoneda = prompt("A qué moneda desea convertir (dolar, euro, real)?");
     const montoIngresado = parseFloat(prompt("Ingrese el monto en pesos"));
 
@@ -36,5 +36,5 @@ while (continuar) {
     if (opcion !== "si"){
         continuar = false;
     }   
-}
+} */
 
