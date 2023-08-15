@@ -10,6 +10,7 @@ ul{
 }
 a{
     text-decoration: none;
+    color: rgb(249, 249, 249);
 }
 header{
     background-color: rgba(249, 153, 36, 0.704);
@@ -44,7 +45,7 @@ nav{
 }
 
 .cont_nosotros{
-    border: 1px solid black;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,4 +101,86 @@ footer div{
     border: 1px solid black;
     width: 100%;
     height: auto;
+}
+
+
+                    /* pagina de registro */
+.REGISTRO{
+    text-align: center;
+    margin-top: 10px;
+    display: block;
+}
+.registro_desaparece{
+    display: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    width: 300px;
+    margin: 20px auto;
+
+}
+
+            /* ESTILOS PARA QUE APAREZCAN CARTELES */
+.registrado{
+    display: none;
+}
+.registrado_aparece{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(85, 157, 85);
+    margin: 10px 10px;
+}
+.mensaje_oculto {
+    border: 1px solid black;
+    display: none;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+}
+.btn-inicio {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.mensaje_aparece{
+    border: 1px solid black;
+    display: block;
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+}
+.form_visto{
+    display: block;     
+    text-align: center;
+    line-height: 23px;
+    
+}
+.formulario_oculto{
+    display: none;
+}
+.cont_inicio_oculto{
+    display: none;
+}
+.cont_inicio_aparece{
+    display: block;
+    text-align: center;
+}
+
+                /* PAGINA DE CONSULTA */
+.consulta_container{
+    text-align: center;
+    margin-top: 50px;
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+    <script src="../archivos_java/datos.js"></script>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav_1">
+                <img src="../imagenes/LOGO AGUS.png" class="logo" alt="">
+                <h1>MULTIREPARACIONES</h1>
+            </div>
+            <div class="nav_2">
+                <ul>
+                    <li><a href="../index.html">INICIO</a></li>
+                    <li><a href="#">CONTACTO</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h1 class="REGISTRO" id="h1_registro">REGISTRA TU EQUIPO AQUI</h1>
+    <h3 class="registrado" id="h1_registrado">EQUIPO REGISTRADO CON EXITO</h3>
+
+
+
+    <form class="form_visto" id="formulario">
+
+        <p>Ingresa tu nombre completo</p>
+        <input type="text" id="nombre">
+        <br>
+        <p>Ingresa tu mail:</p>
+        <input type="email" id="mail" name="email">
+        <br>
+        <p>Ingresa tu telefono:</p>
+        <input type="tel" name="phone" id="telefono">    
+        <br>
+        <p>tu equipo:</p>
+        <input type="text" placeholder="PC,CELULAR,IMPRESORA" id="equipo">
+        <br>
+        <p>Marca de tu equipo:</p>
+        <input type="text" id="marca">
+        <br>
+        <p>Modelo de tu modelo:</p>
+        <input type="text" id="modelo">
+        <br>
+        <p>Comentanos tu problema:</p>
+        <!-- <input type="texta" name="" id="problema" maxlength="20"> -->
+        <textarea name="" cols="30" rows="10" id="problema" ></textarea>
+        <br>
+        <button id="registrar_equipo"> GUARDAR DATOS</button>
+
+    </form>
+
+    <div class="mensaje_oculto" id="cont_regreso">
+    </div>
+    <div class="cont_inicio_oculto" id="btn_inicio">
+        <a href="../index.html" id="ancor"><button class="btn-inicio">INICIO</button></a>
+    </div>
+    
+
+    <footer>
+        <div class="footer">
+            <img src="../imagenes/LOGO AGUS.png"  class="logo">
+            <h1>MULTIREPARACIONES</h1>
+        </div>
+    </footer>
+    <script src="../archivos_java/registro.js"></script>
+</body>
+</html>
