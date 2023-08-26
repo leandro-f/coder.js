@@ -20,46 +20,68 @@ registrar_equipo.addEventListener("click", (event) => {
 
     const usuario = datosUsuarios();
 
-    if (
-        usuario.nombre === "" ||
-        usuario.mail === "" ||
-        usuario.telefono === "" ||
-        usuario.equipo === "" ||
-        usuario.marca === "" ||
-        usuario.modelo === "" ||
-        usuario.problema === ""
-    ) {
-        alert("Todos los campos deben completarse.");
-    } else {
-        const confirmacion = confirm("¿Los datos son correctos?\nNombre: " + usuario.nombre + "\nMail: " + usuario.mail + "\nTeléfono: " + usuario.telefono + "\nEquipo: " + usuario.equipo + "\nMarca: " + usuario.marca + "\nModelo: " + usuario.modelo + "\nProblema: " + usuario.problema);
-        
-        if (confirmacion) {
-            usuariosRegistrados.push(usuario);
-            guardarUsuariosRegistrados(usuariosRegistrados);
+    Swal.fire({
+        title: 'Confirmación',
+        html: `¿Los datos son correctos?<br>
+            <strong>Nombre:</strong> ${usuario.nombre}<br>
+            <strong>Mail:</strong> ${usuario.mail}<br>
+            <strong>Teléfono:</strong> ${usuario.telefono}<br>
+            <strong>Equipo:</strong> ${usuario.equipo}<br>
+            <strong>Marca:</strong> ${usuario.marca}<br>
+            <strong>Modelo:</strong> ${usuario.modelo}<br>
+            <strong>Problema:</strong> ${usuario.problema}`,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, enviar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            if (
+                usuario.nombre !== "" &&
+                usuario.mail !== "" &&
+                usuario.telefono !== "" &&
+                usuario.equipo !== "" &&
+                usuario.marca !== "" &&
+                usuario.modelo !== "" &&
+                usuario.problema !== ""
+            ) {
+                usuariosRegistrados.push(usuario);
+                guardarUsuariosRegistrados(usuariosRegistrados);
 
+                const registro = document.querySelector("#h1_registro");
+                const registrado = document.querySelector("#h1_registrado");
+                const formulario = document.querySelector("#formulario");
+                const mensaje = document.querySelector("#cont_regreso");
+                const numeroRegistro = usuariosRegistrados.length;
+                const btn_inicio = document.querySelector("#btn_inicio");
 
-            const registro = document.querySelector("#h1_registro")
-            const registrado = document.querySelector("#h1_registrado")
-            const formulario = document.querySelector("#formulario");
-            const mensaje = document.querySelector("#cont_regreso");
-            const numeroRegistro = usuariosRegistrados.length;
-            const btn_inicio = document.querySelector("#btn_inicio");
-
-
-            registro.classList.remove("REGISTRO")
-            registro.classList.add("registro_desaparece")
-            registrado.classList.remove("registrado")
-            registrado.classList.add("registrado_aparece")
-            formulario.classList.remove("form_visto");
-            formulario.classList.add("formulario_oculto");
-            mensaje.innerHTML = `<h4>Lo estaremos contactando. Tu número de registro es: ${numeroRegistro}</h4>`;
-            mensaje.classList.remove("mensaje_oculto");
-            mensaje.classList.add("mensaje_aparece");
-            btn_inicio.classList.remove("cont_inicio_oculto");
-            btn_inicio.classList.add("cont_inicio_aparece")
+                registro.classList.remove("REGISTRO");
+                registro.classList.add("registro_desaparece");
+                registrado.classList.remove("registrado");
+                registrado.classList.add("registrado_aparece");
+                formulario.classList.remove("form_visto");
+                formulario.classList.add("formulario_oculto");
+                Swal.fire({
+                    title: 'Muchas gracias, a la brevedad nos contactaremos',
+                    icon: 'success'
+                });
+                mensaje.classList.add("titulo")
+                /* mensaje.innerHTML = `<h4 class: "titulo">Tu número de registro es: ${numeroRegistro}</h4>`; */
+                mensaje.innerHTML = `<h4 class: "titulo">En tu bandeja de mail recibiras tu codigo de registro</h4>`;
+                mensaje.classList.remove("mensaje_oculto");
+                mensaje.classList.add("mensaje_aparece");
+                btn_inicio.classList.remove("cont_inicio_oculto");
+                btn_inicio.classList.add("cont_inicio_aparece");
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Completa todos los campos'
+                });
+            }
         }
-    }
+    });
 });
+
 
 function datosUsuarios() {
     const nombreUsuario = document.querySelector("#nombre").value;
@@ -73,13 +95,5 @@ function datosUsuarios() {
     return new PlantillaUsuario(nombreUsuario, mailUsuario, telefonoUsuario, equipoUsuario, marcaUsuario, modeloUsuario, problemaUsuario);
 }
 
-/* function obtenerUsuariosRegistrados() {
-    const usuariosJSON = localStorage.getItem("usuarios");
-    return JSON.parse(usuariosJSON);
-}
 
-function guardarUsuariosRegistrados(usuarios) {
-    const usuariosJSON = JSON.stringify(usuarios);
-    localStorage.setItem("usuarios", usuariosJSON);
-} */
 

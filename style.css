@@ -184,3 +184,17 @@ form{
     text-align: center;
     margin-top: 50px;
 }
+
+.titulo{
+    font-size: 30px;
+    width: 20%;
+    padding: 20px;
+}
+
+.part_tecnico{
+    text-align: center;
+    border: 2px solid black;
+    margin: 20px auto;
+    display: block;
+    width: 300px;
+}
