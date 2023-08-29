@@ -1,25 +1,23 @@
-const usuariosRegistrados = [
-    {
+
+export const usuariosRegistrados = [
+  {
       numeroRegistro: 1,
-      nombre: "Usuario Uno",
+      nombre: "santiago augusto",
       mail: "usuario1@example.com",
       telefono: "1234567890",
       equipo: "PC",
-      marca: "Marca Uno",
-      modelo: "Modelo Uno",
-      problema: "Problema Uno"
-    },
-    {
+      marca: "next one",
+      modelo: "c9",
+      problema: "Problema no enciende"
+  },
+  {
       numeroRegistro: 2,
-      nombre: "Usuario Uno",
+      nombre: "bernardo lopez",
       mail: "usuario1@example.com",
       telefono: "1234567890",
-      equipo: "PC",
-      marca: "Marca Uno",
-      modelo: "Modelo Uno",
-      problema: "Problema Uno"
-    },
-   
-  ];
-  
-  export default usuariosRegistrados;
+      equipo: "celular",
+      marca: "Motorola",
+      modelo: "G8",
+      problema: "se mojo el equipo"
+  }
+];

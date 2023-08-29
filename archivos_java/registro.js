@@ -10,9 +10,6 @@ class PlantillaUsuario {
     }
 }
 
-const usuariosRegistrados = obtenerUsuariosRegistrados() || [];
-/* const usuariosRegistrados = [];  */
-
 const registrar_equipo = document.querySelector("#registrar_equipo");
 
 registrar_equipo.addEventListener("click", (event) => {
@@ -45,14 +42,12 @@ registrar_equipo.addEventListener("click", (event) => {
                 usuario.modelo !== "" &&
                 usuario.problema !== ""
             ) {
-                usuariosRegistrados.push(usuario);
-                guardarUsuariosRegistrados(usuariosRegistrados);
+                guardarEquipoRegistrado(usuario);
 
                 const registro = document.querySelector("#h1_registro");
                 const registrado = document.querySelector("#h1_registrado");
                 const formulario = document.querySelector("#formulario");
                 const mensaje = document.querySelector("#cont_regreso");
-                const numeroRegistro = usuariosRegistrados.length;
                 const btn_inicio = document.querySelector("#btn_inicio");
 
                 registro.classList.remove("REGISTRO");
@@ -65,8 +60,8 @@ registrar_equipo.addEventListener("click", (event) => {
                     title: 'Muchas gracias, a la brevedad nos contactaremos',
                     icon: 'success'
                 });
+
                 mensaje.classList.add("titulo")
-                /* mensaje.innerHTML = `<h4 class: "titulo">Tu número de registro es: ${numeroRegistro}</h4>`; */
                 mensaje.innerHTML = `<h4 class: "titulo">En tu bandeja de mail recibiras tu codigo de registro</h4>`;
                 mensaje.classList.remove("mensaje_oculto");
                 mensaje.classList.add("mensaje_aparece");
@@ -82,7 +77,6 @@ registrar_equipo.addEventListener("click", (event) => {
     });
 });
 
-
 function datosUsuarios() {
     const nombreUsuario = document.querySelector("#nombre").value;
     const mailUsuario = document.querySelector("#mail").value;
@@ -94,6 +88,17 @@ function datosUsuarios() {
 
     return new PlantillaUsuario(nombreUsuario, mailUsuario, telefonoUsuario, equipoUsuario, marcaUsuario, modeloUsuario, problemaUsuario);
 }
+
+function guardarEquipoRegistrado(usuario) {
+    const equiposRegistrados = getEquiposRegistrados();
+    equiposRegistrados.push(usuario);
+    localStorage.setItem('equiposRegistrados', JSON.stringify(equiposRegistrados));
+}
+function getEquiposRegistrados() {
+    const equiposRegistradosString = localStorage.getItem('equiposRegistrados');
+    return equiposRegistradosString ? JSON.parse(equiposRegistradosString) : [];
+}
+
 
 
 
